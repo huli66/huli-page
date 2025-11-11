@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Timeout from "./Timeout";
 
+export const dynamic = 'force-dynamic';
+
 const fetchAvatar = async (qq: string) => {
-  const {image} = await fetch(`http://localhost:3000/api/qq/avatar?qq=${qq}&b=qq&s=640`).then(res => res.json());
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  const {image} = await fetch(`${baseUrl}/api/qq/avatar?qq=${qq}&b=qq&s=640`).then(res => res.json());
   return image;
 }
 
