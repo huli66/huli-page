@@ -36,3 +36,13 @@ body {
     transform: scale(1);
   }
 }
+
+@layer utilities {
+  .cursor-normal {
+    cursor: url('/cursor/cursor.cur') 16 16, default;
+  }
+
+  .cursor-pointer {
+    cursor: url('/cursor/hover.cur') 16 16, pointer;
+  }
+}

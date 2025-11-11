@@ -27,15 +27,15 @@ const Love = async () => {
       </header>
       <section className="flex flex-col items-center justify-center">
         <div className="h-[80%] w-[80%] flex items-center justify-between">
-          <div className="rounded-full overflow-hidden">
+          <div className="rounded-full overflow-hidden cursor-pointer">
             <Image src={img1} alt="huli" width={100} height={100} />
           </div>
           <div style={{
             animation: 'pulse-scale 1.5s ease-in-out infinite'
-          }}>
+          }} className="cursor-pointer">
             <Image src="/like.svg" alt="like" width={100} height={100} />
           </div>
-          <div className="rounded-full overflow-hidden">
+          <div className="rounded-full overflow-hidden cursor-pointer">
             <Image src={img2} alt="bstar" width={100} height={100} />
           </div>
         </div>
