@@ -23,6 +23,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  background-image: url('/images/background3.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 @keyframes pulse-scale {
@@ -39,10 +42,42 @@ body {
 
 @layer utilities {
   .cursor-normal {
-    cursor: url('/cursor/cursor.cur') 16 16, default;
+    cursor: url('/cursor/cursor.cur') 4 4, default;
   }
 
   .cursor-pointer {
-    cursor: url('/cursor/hover.cur') 16 16, pointer;
+    cursor: url('/cursor/hover.cur') 4 4, pointer;
   }
+
+}
+
+
+.card {
+  border-radius: 6px;
+  background-color: #00000040;
+  backdrop-filter: blur(10px);
+  transform: scale(1);
+  transition:
+    backdrop-filter 0.3s,
+    transform 0.3s;
+  &:hover {
+    transform: scale(1.01);
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.card-link {
+  &:hover {
+    background-color: #00000080;
+    transition: background-color 0.3s;
+    @apply cursor-pointer;
+  }
+}
+
+.text-hidden {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
