@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
-  console.log('get')
-  console.log('nextUrl', request);
-  console.log('url', request.url, request.nextUrl.search);
   debugger;
   const { searchParams } = request.nextUrl;
   const qq = searchParams.get("qq");

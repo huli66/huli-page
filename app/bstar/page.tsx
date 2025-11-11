@@ -1,10 +1,24 @@
 import Image from "next/image";
 import Timeout from "./Timeout";
 
+const fetchAvatar = async (qq: string) => {
+  const {image} = await fetch(`http://localhost:3000/api/qq/avatar?qq=${qq}&b=qq&s=640`).then(res => res.json());
+  return image;
+}
+
+const HULI = {
+  qq: '2969054528',
+  name: 'HuJianjun'
+}
+
+const BSTAR = {
+  qq: '1960708821',
+  name: 'Bstar'
+}
+
 const Love = async () => {
-  console.log('start')
-  const {image} = await fetch(`http://localhost:3000/api/qq/avatar?qq=2969054528&b=qq&s=640`).then(res => res.json());
-  const {image: img2} = await fetch(`http://localhost:3000/api/qq/avatar?qq=1960708821&b=qq&s=640`).then(res => res.json());
+  const img1 = await fetchAvatar(HULI.qq);
+  const img2 = await fetchAvatar(BSTAR.qq);
   return (
     <div>
       <header className="flex items-center justify-between">
@@ -14,7 +28,7 @@ const Love = async () => {
       <section className="flex flex-col items-center justify-center">
         <div className="h-[80%] w-[80%] flex items-center justify-between">
           <div className="rounded-full overflow-hidden">
-            <Image src={image} alt="avatar" width={100} height={100} />
+            <Image src={img1} alt="huli" width={100} height={100} />
           </div>
           <div style={{
             animation: 'pulse-scale 1.5s ease-in-out infinite'
@@ -22,7 +36,7 @@ const Love = async () => {
             <Image src="/like.svg" alt="like" width={100} height={100} />
           </div>
           <div className="rounded-full overflow-hidden">
-            <Image src={img2} alt="avatar" width={100} height={100} />
+            <Image src={img2} alt="bstar" width={100} height={100} />
           </div>
         </div>
       </section>
