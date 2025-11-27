@@ -12,8 +12,10 @@
 
 ## 项目
 
+- github page 项目与 obsidian 融合
 - rust npm 包，数据统计，大文件读取解析，大文件上传发送？
 - 纵横虚拟滚动，适配移动端，白屏，优先渲染列，使用 requestAnimation 和 requestIdle
 - next 弹窗展示其他项目页面，新窗口打开则跳转
 - 拖拽布局组件通信
 - 聊天室，trpc 通信
+
