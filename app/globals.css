@@ -5,6 +5,11 @@
   --foreground: #171717;
 }
 
+:root[data-theme="dark"] {
+  --background: red;
+  /* --background: #0a0a0a; */
+  --foreground: #ededed;
+}
 
 @theme inline {
   --color-background: var(--background);
@@ -15,13 +20,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
   }
 }
 
 body {
-  /* background: var(--background); */
+  background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   /* background-image: url("/images/background3.jpg"); */
@@ -66,7 +69,7 @@ body {
       transform: scale(0.98);
     }
   }
-  
+
   .card-link {
     &:hover {
       background-color: #00000080;
@@ -99,7 +102,7 @@ pre.shiki {
   .shiki {
     color: var(--shiki-dark) !important;
     background-color: var(--shiki-dark-bg) !important;
-  
+
     code {
       .line {
         span {
