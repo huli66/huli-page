@@ -5,6 +5,7 @@
   --foreground: #171717;
 }
 
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -20,14 +21,15 @@
 }
 
 body {
-  background: var(--background);
+  /* background: var(--background); */
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url("/images/background3.jpg");
+  /* background-image: url("/images/background3.jpg"); */
   background-size: cover;
   background-position: center;
 }
 
+/* 放大再缩小 */
 @keyframes pulse-scale {
   0% {
     transform: scale(1);
@@ -86,4 +88,24 @@ body {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+pre.shiki {
+  padding: 32px 16px 16px 16px;
+  overflow: auto;
+}
+
+:root[code-theme="dark"] {
+  .shiki {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  
+    code {
+      .line {
+        span {
+          color: var(--shiki-dark) !important;
+        }
+      }
+    }
+  }
 }

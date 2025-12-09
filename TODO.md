@@ -10,6 +10,9 @@
 - 引入首页骨架屏
 - icon 包引入
 
+- 微码功能，echarts，aggrid 配置最佳实践
+- 路由弹窗功能
+
 ## 项目
 
 - github page 项目与 obsidian 融合
