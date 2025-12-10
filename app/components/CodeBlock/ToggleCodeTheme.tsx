@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type Theme = 'dark' | 'light';
 
@@ -15,19 +15,34 @@ const themeOpts = [
   }
 ]
 
-const getInitialTheme = () => {
-  if (typeof window === 'undefined') return 'light';
+const getBrowserTheme = (): Theme => {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
 const ToggleCodeTheme = () => {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme());
+  const [theme, setTheme] = useState<Theme>('light');
 
   const handleToggleTheme = (theme: Theme) => {
     setTheme(theme);
     document.documentElement.setAttribute('code-theme', theme);
     localStorage.setItem('code-theme', theme);
   }
+
+  useEffect(() => {
+    const handleStorage = (e: StorageEvent) => {
+      if (e.key !== 'code-theme') {
+        return;
+      }
+      console.log('e.newValue', e.newValue);
+      if (!e.newValue) {
+        setTheme(() => getBrowserTheme())
+      } else {
+        setTheme(e.newValue as Theme);
+      }
+    }
+    window.addEventListener('storage', handleStorage);
+    return () => window.removeEventListener('storage', handleStorage);
+  }, []);
 
   return <div>
     <select value={theme} onChange={(e) => handleToggleTheme(e.target.value as Theme)}>
